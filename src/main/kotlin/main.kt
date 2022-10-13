@@ -1,18 +1,20 @@
 import java.io.File
+import java.util.*
+import kotlin.math.min
 import kotlin.math.roundToInt
+
+//TODO1: IMPORTANT: joint assessment is not supported yet (classes 3/5, landforstwirtschaft etc.)
+//probably will have to send two Subjects into a TaxChain
+
+val CURRENT_YEAR: Int = Calendar.getInstance().get(Calendar.YEAR)
 
 class Subject(var budget:MutableList<Budget>) {
     val sum = budget.fold(0.0) {ac, v -> ac + v.sum}
 }
 
-open class Budget(var sum:Double) {
-    constructor(_sum: Int):this(_sum.toDouble())
+open class Budget(var sum:Double, var name:String = "") {
+    constructor(_sum: Int, name:String = ""):this(_sum.toDouble(), name)
 }
-
-//class VirtualBudget {
-//    var takesFrom: MutableList<Budget> = mutableListOf()
-//    var sum = takesFrom.fold(0.0) { accum, v -> accum + v.sum}
-//}
 
 interface IncomeType {
 }
@@ -30,10 +32,13 @@ abstract class Reduction(var red_amount: Double? = null, var red_proof: File? = 
     }
 }
 
-interface Factor {
+interface Factor {//TODO2: for each factor description and possible switches (caution: not "become a single parent", rather "if you are a single parent and for some reason forgot to state it, please do")
 }
 
-class Age(val age: Int = 0): Factor {
+class BirthYear(val birthYear: Int): Factor {
+}
+
+class TaxYear(val taxYear: Int = CURRENT_YEAR) : Factor {
 }
 
 interface LegalReduction {
@@ -47,13 +52,19 @@ interface TaxChain {
 
 object GermanTax: TaxChain {
     private var taxClass: Int? = null
-    private var age: Int? = null
-    private var east: Boolean? = null
+    private var birthYear: Int? = null
+    private var taxYear: Int? = null
+    private var east: Boolean = false
+    private var singleParentWith: Int = 0
+    private var dontSendTax: Boolean = false
 
     private fun <T:Factor> checkFactors(changes: List<T>): Boolean {
         changes.map {
             when (it) {
-                is Age -> age = (it as Age).age
+                is BirthYear -> birthYear = if (birthYear == null) (it as BirthYear).birthYear else null
+                is TaxYear -> taxYear = if (taxYear == null) (it as TaxYear).taxYear else null
+                is SingleParentWith -> singleParentWith = (it as SingleParentWith).childrenQtty
+                is DontSendTax -> dontSendTax = true
                 is TaxClass -> {
                     taxClass = if (taxClass != null) {
                         null // contradiction
@@ -71,24 +82,22 @@ object GermanTax: TaxChain {
                 is EasternGermany -> east = true
             }
         }
-        if (east == null) east = false
-        return (taxClass != null && age != null)
+        return (taxClass != null && birthYear != null && taxYear != null)
     }
 
-    /*private*/ fun untaxableDueToOldAge(birthYear:Int, curYear: Int, income: Double): Double {
-        val _age = curYear - birthYear - 1 // -1 because it starts the year AFTER person hits 64
-        println(_age)
-        if (_age < 64) return 0.0
+    private fun nontaxableDueToOldAge(income: Double): Double { // Altersentlastungsbetrag, automatically
+        val age = let { taxYear!! - birthYear!! - 1 } ?: 0 // -1 because it starts the year AFTER person hits 64
+        if (age < 64) return 0.0
         val table:Map<Int, Pair<Double, Double>> = mapOf(
-            2005 to Pair(40.0, 1900.0), 2006 to Pair(38.4, 1824.0), 2007 to Pair(36.8, 1748.0), 2008 to Pair(35.2, 1672.0), 2009 to Pair(33.6, 1596.0), 2010 to Pair(32.0, 1520.0)
-            , 2011 to Pair(30.4, 1444.0), 2012 to Pair(28.8, 1368.0), 2013 to Pair(27.2, 1292.0), 2014 to Pair(25.6, 1216.0), 2015 to Pair(24.0, 1140.0)
-            , 2016 to Pair(22.4, 1064.0), 2017 to Pair(20.8, 988.0), 2018 to Pair(19.2, 912.0), 2019 to Pair(17.6, 836.0), 2020 to Pair(16.0, 760.0)
-            , 2021 to Pair(15.2, 722.0), 2022 to Pair(14.4, 684.0), 2023 to Pair(13.6, 646.0), 2024 to Pair(12.8, 608.0), 2025 to Pair(12.0, 570.0)
-            , 2026 to Pair(11.2, 532.0), 2027 to Pair(10.4, 494.0), 2028 to Pair(9.6, 456.0), 2029 to Pair(8.8, 418.0), 2030 to Pair(8.0, 380.0)
-            , 2031 to Pair(7.2, 342.0), 2032 to Pair(6.4, 304.0), 2033 to Pair(5.6, 266.0), 2034 to Pair(4.8, 228.0), 2035 to Pair(4.0, 190.0)
-            , 2036 to Pair(3.2, 152.0), 2037 to Pair(2.4, 114.0), 2038 to Pair(1.6, 76.0), 2039 to Pair(0.8, 38.0))
+            2005 to Pair(40.0, 1900.0), 2006 to Pair(38.4, 1824.0), 2007 to Pair(36.8, 1748.0), 2008 to Pair(35.2, 1672.0), 2009 to Pair(33.6, 1596.0)
+            , 2010 to Pair(32.0, 1520.0), 2011 to Pair(30.4, 1444.0), 2012 to Pair(28.8, 1368.0), 2013 to Pair(27.2, 1292.0), 2014 to Pair(25.6, 1216.0)
+            , 2015 to Pair(24.0, 1140.0), 2016 to Pair(22.4, 1064.0), 2017 to Pair(20.8, 988.0), 2018 to Pair(19.2, 912.0), 2019 to Pair(17.6, 836.0)
+            , 2020 to Pair(16.0, 760.0), 2021 to Pair(15.2, 722.0), 2022 to Pair(14.4, 684.0), 2023 to Pair(13.6, 646.0), 2024 to Pair(12.8, 608.0)
+            , 2025 to Pair(12.0, 570.0), 2026 to Pair(11.2, 532.0), 2027 to Pair(10.4, 494.0), 2028 to Pair(9.6, 456.0), 2029 to Pair(8.8, 418.0)
+            , 2030 to Pair(8.0, 380.0), 2031 to Pair(7.2, 342.0), 2032 to Pair(6.4, 304.0), 2033 to Pair(5.6, 266.0), 2034 to Pair(4.8, 228.0)
+            , 2035 to Pair(4.0, 190.0), 2036 to Pair(3.2, 152.0), 2037 to Pair(2.4, 114.0), 2038 to Pair(1.6, 76.0), 2039 to Pair(0.8, 38.0))
         return table.let {
-            val untax = it[birthYear + 65]
+            val untax = it[birthYear!! + 65]//checked above
             minOf(untax?.second ?: 0.0, income * (untax?.first ?: 0.0))
         } ?: 0.0
 
@@ -96,32 +105,63 @@ object GermanTax: TaxChain {
 
     override fun <T:Reduction, R: Factor> apply(subj: Subject, changes: List<T>, factors: List<R>): Pair<Budget, Budget> {
         if (!checkFactors(factors)) {
-            println ("ERROR: some vital tax factors were not provided (age, tax class)")
+            println ("ERROR: some vital tax factors were not provided (age, tax class, taxation year)")
             return Pair(Budget(subj.sum), Budget(0.0))
         }
 
-        val lvl0 = subj.budget.filter {it is EmploymentIncome || it is SelfEmploymentIncome/*TODO1: more here*/}.fold(Budget(0.0)) { acc, v ->
+        val lvl0 = subj.budget.filter {it is EmploymentIncome || it is SelfEmploymentIncome || it is AgricultureForestryIncome || it is OwnBusinessIncome || it is CapitalIncome || it is RentLeaseIncome || it is OtherIncome}
+            .fold(Budget(0.0)) { acc, v ->
                 Budget(acc.sum + v.sum)
             }
-        // first brutto income
-        //TODO1: actually self-employment is a different budget, and it seems betriebsausgaben are deducted only from it, not from other incomes
 
-        val lvl1 = changes.filter {it is Werbungskosten && it.red_amount != null}
-            .fold(lvl0) { acc, change ->
-                Budget(acc.sum - (let { (change as Reduction).red_amount } ?: 0.0))
+        //TODO1: actually self-employment is a different budget, and it seems betriebsausgaben are deducted only from it, not from other incomes. maybe applies to all types of income.
+
+        val lvl1 = if (dontSendTax) Budget(lvl0.sum - 1200.0) else {
+            changes.filter {it is Werbungskosten && it.red_amount != null}
+                .fold(lvl0) { acc, change ->
+                    Budget(acc.sum - (let { (change as Reduction).red_amount } ?: 0.0))
+                }
+        }
+
+        lvl1.name = "Summe der Einkünfte"
+
+        val lvl2 = Budget(lvl1.sum)
+        lvl2.sum -= nontaxableDueToOldAge(lvl1.sum)
+        lvl2.sum -= reliefForSingleParents()
+        val agriForest = subj.budget.filter {it is AgricultureForestryIncome}
+            .fold(Budget(0.0)) { acc, v ->
+                Budget(acc.sum + v.sum)
             }
-        //minus werbungskosten
+        lvl2.sum -= agriForestAllowance(lvl1.sum, agriForest.sum)
+        lvl2.name = "Gesamtbetrag der Einkünfte"
 
-        var totalTaxPaid = subj.sum - lvl1.sum
+        //TODO1: loss compensation (Verlustabzug) here. no idea how to implement yet. can move losses in one type of income to other types of income, or even to +- 1 year to soften taxation.
 
-        //TODO: old age
+        val lvl3 = if (dontSendTax) Budget(lvl2.sum - 36.0) else {
+            changes.filter {it is Sonderausgaben && it.red_amount != null}
+                .fold(lvl2) { acc, change ->
+                    Budget(acc.sum - (let { (change as Reduction).red_amount } ?: 0.0))//TODO: complex red_amount return (like 2/3 for schools etc)
+                }
+        }
 
-        return Pair(lvl1, Budget(totalTaxPaid))
-//        val _lvl2 = changes.filter {it is Werbungskosten && it.red_amount != null}
-//            .fold(taxpoint) { accum, change ->
-//                Budget(accum.sum - (let { (change as Reduction)!!.red_amount } ?: 0.0))
-//            }
 
+        return Pair(lvl1, Budget(0.0))
+    }
+
+    private fun agriForestAllowance(base: Double, agri: Double): Double { // Einkünfte_aus_Land-_und_Forstwirtschaft_(Deutschland) freibeitrag
+        return if (base <= 30700) min(agri, 900.0) else 0.0 // TODO1: actually for this income the tax year is different, not jan-dec, but jul-jun. could cause errors. gotta dig that.
+    }
+
+    private fun reliefForSingleParents(): Double { //Alleinerziehendenentlastungsbetrag. automatically is taken into account with tax class 2 (in tax office, not in this program yet), so TODO1
+        if (singleParentWith <= 0) return 0.0//TODO1: maybe not, there was something about gradual decrease
+        return when (taxYear) {
+                in 1990..2001 -> 2916.0
+                in 2002..2003 -> 2340.0
+                in 2004..2014 -> 1308.0
+                in 2015..2019 -> 1908.0 + 240 * (singleParentWith - 1)
+                in 2020..Int.MAX_VALUE -> 4008.0 + 240.0 * (singleParentWith - 1)
+                else -> 0.0
+            }
     }
 
     class AgricultureForestryIncome(sum: Double): Budget(sum), IncomeType {
@@ -142,7 +182,7 @@ object GermanTax: TaxChain {
     class RentLeaseIncome(sum: Double): Budget(sum), IncomeType {
     }
 
-    class Other(sum: Double): Budget(sum), IncomeType {
+    class OtherIncome(sum: Double): Budget(sum), IncomeType {
         //TODO1: add others from https://www.gesetze-im-internet.de/estg/__22.html
     }
 
@@ -166,6 +206,13 @@ object GermanTax: TaxChain {
     class EasternGermany: Factor {
     }
 
+    class SingleParentWith (val childrenQtty:Int): Factor {//TODO1: conflicts with tax class 2, difficulties with joint assessment
+    }
+
+    interface DontSendTax: Factor {
+        companion object {}
+    }
+
     interface TaxClass: Factor {
     }
 
@@ -184,10 +231,9 @@ object GermanTax: TaxChain {
     class TaxClass5: TaxClass {
     }
 
-    object IncomeTax: Tax {
+    private object IncomeTax: Tax {
         override fun apply(taxpoint: Budget): Pair<Budget, Budget> {
-            val year = 2023//TODO2:dummy here
-            val tax = when (year) {
+            val tax = when (taxYear) {
                 2023 -> {//actually current 2022
                     val taxfree = 10347.0
                     val y = ((taxpoint.sum.roundToInt() - taxfree) * 0.0001)
@@ -251,7 +297,7 @@ fun <T:Tax> Budget.apply(tax: T): Pair<Budget, Budget> {
 }
 
 fun main(args: Array<String>) {
-    /*val a1 = GermanTax.EmploymentIncome(10000.0)
+    val a1 = GermanTax.EmploymentIncome(10000.0)
     val a2 = GermanTax.AgricultureForestryIncome(20000.0)
     val a3 = GermanTax.SelfEmploymentIncome(30000.0)
     val mariia = Subject(mutableListOf(a1, a2, a3))
@@ -260,7 +306,14 @@ fun main(args: Array<String>) {
         , GermanTax.FoodInBusinessTrip(2000.0)
         , GermanTax.StudyExpenses(5000.0)
     )
-    val res = GermanTax.apply(mariia, changes)
-    println(res.first.sum)*/
-    println(GermanTax.untaxableDueToOldAge(1992, 2100, 8000.0))
+    val factors:MutableList<Factor> = mutableListOf(
+        GermanTax.EasternGermany()
+        , GermanTax.TaxClass1()
+        , GermanTax.TaxClass2()
+        , BirthYear(1992)
+        , TaxYear(2022)
+        , GermanTax.SingleParentWith(2)
+    )
+    val res = GermanTax.apply(mariia, changes, factors)
+    println(res.first.sum)
 }
