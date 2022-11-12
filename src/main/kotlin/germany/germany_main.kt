@@ -16,12 +16,21 @@ object GermanTax: TaxChain {
     private var singleParentWith: Int = 0
     private var dontSendTax: Boolean = false
 
-    private fun <T:Factor> checkFactors(changes: List<T>): Boolean {
-        changes.map {
+    private fun <T:Factor> checkFactors(factors: List<T>): Boolean {
+        factors.map {
             when (it) {
-                is BirthYear -> birthYear = if (birthYear == null) (it as BirthYear).birthYear else null
-                is TaxYear -> taxYear = if (taxYear == null) (it as TaxYear).taxYear else null
-                is SingleParentWith -> singleParentWith = (it as SingleParentWith).childrenQtty
+                is BirthYear -> birthYear = if (birthYear == null) (it as BirthYear).birthYear else {
+                    println("ERROR: multiple birth year assignments for one person")
+                    null
+                }
+                is TaxYear -> taxYear = if (taxYear == null) (it as TaxYear).taxYear else {
+                    println("ERROR: multiple tax year assignments for one calculation")
+                    null
+                }
+                is SingleParentWith -> singleParentWith = if (singleParentWith == 0) ((it as SingleParentWith).childrenQtty) else {
+                    println("ERROR: multiple single parent assignments for one person, assuming no children")
+                    0
+                }
                 is DontSendTax -> dontSendTax = true
                 is TaxClass -> {
                     taxClass = if (taxClass != null) {
