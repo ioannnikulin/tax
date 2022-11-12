@@ -1,0 +1,295 @@
+I. Steuerpflicht
+	§1:Steuerpflicht
+	§1a:1a
+II. Einkommen
+	1. Sachliche Voraussetzungen für die Besteuerung
+		§2:Umfang der Besteuerung, Begriffsbestimmungen
+		§2a:Negative Einkünfte mit Bezug zu Drittstaaten
+	2. Steuerfreie Einnahmen
+		§3:Steuerfreie Einnahmen
+		§3a:Sanierungserträge
+		§3b:Steuerfreiheit von Zuschlägen für Sonntags-, Feiertags- oder Nachtarbeit
+		§3c:Anteilige Abzüge
+	3. Gewinn
+		§4:Gewinnbegriff im Allgemeinen
+		§4a:Gewinnermittlungszeitraum, Wirtschaftsjahr
+		§4b:Direktversicherung
+		§4c:Zuwendungen an Pensionskassen
+		§4d:Zuwendungen an Unterstützungskassen
+		§4e:Beiträge an Pensionsfonds
+		§4f:Verpflichtungsübernahmen, Schuldbeitritte und Erfüllungsübernahmen
+		§4g:Bildung eines Ausgleichspostens bei Entnahme nach §4 Absatz 1 Satz 3
+		§4h:Betriebsausgabenabzug für Zinsaufwendungen (Zinsschranke)
+		§4i:Sonderbetriebsausgabenabzug bei Vorgängen mit Auslandsbezug
+		§4j:Aufwendungen für Rechteüberlassungen
+		§4k:Betriebsausgabenabzug bei Besteuerungsinkongruenzen
+		§5:Gewinn bei Kaufleuten und bei bestimmten anderen Gewerbetreibenden
+		§5a:Gewinnermittlung bei Handelsschiffen im internationalen Verkehr
+		§5b:Elektronische Übermittlung von Bilanzen sowie Gewinn- und Verlustrechnungen
+		§6:Bewertung
+		§6a:Pensionsrückstellung
+		§6b:Übertragung stiller Reserven bei der Veräußerung bestimmter Anlagegüter
+		§6c:Übertragung stiller Reserven bei der Veräußerung bestimmter Anlagegüter bei der Ermittlung des Gewinns nach §4 Absatz 3 oder nach Durchschnittssätzen
+		§6d:Euroumrechnungsrücklage
+		§6e:Fondsetablierungskosten als Anschaffungskosten
+		§7:Absetzung für Abnutzung oder Substanzverringerung
+		§7a:Gemeinsame Vorschriften für erhöhte Absetzungen und Sonderabschreibungen
+		§7b:Sonderabschreibung für Mietwohnungsneubau
+		§7c:(bedingt zukünftig in Kraft)
+		§7d:(weggefallen)
+		§7e:(weggefallen)
+		§7f:(weggefallen)
+		§7g:Investitionsabzugsbeträge und Sonderabschreibungen zur Förderung kleiner und mittlerer Betriebe
+		§7h:Erhöhte Absetzungen bei Gebäuden in Sanierungsgebieten und städtebaulichen Entwicklungsbereichen
+		§7i:Erhöhte Absetzungen bei Baudenkmalen
+		§7k:(weggefallen)
+	4. Überschuss der Einnahmen über die Werbungskosten
+		§8:Einnahmen
+		§9:Werbungskosten
+		§9a:Pauschbeträge für Werbungskosten
+	4a. Umsatzsteuerrechtlicher Vorsteuerabzug
+		§9b:Umsatzsteuerrechtlicher Vorsteuerabzug
+	5. Sonderausgaben
+		§10:Sonderausgaben
+		§10a:Zusätzliche Altersvorsorge
+		§10b:Steuerbegünstigte Zwecke
+		§10c:Sonderausgaben-Pauschbetrag
+		§10d:Verlustabzug
+		§10e:Steuerbegünstigung der zu eigenen Wohnzwecken genutzten Wohnung im eigenen Haus
+		§10f:Steuerbegünstigung für zu eigenen Wohnzwecken genutzte Baudenkmale und Gebäude in Sanierungsgebieten und städtebaulichen Entwicklungsbereichen
+		§10g:Steuerbegünstigung für schutzwürdige Kulturgüter, die weder zur Einkunftserzielung noch zu eigenen Wohnzwecken genutzt werden
+		§10h:(weggefallen)
+		§10i:(weggefallen)
+	6. Vereinnahmung und Verausgabung
+		§11:Vereinnahmung und Verausgabung
+		§11a:Sonderbehandlung von Erhaltungsaufwand bei Gebäuden in Sanierungsgebieten und städtebaulichen Entwicklungsbereichen
+		§11b:Sonderbehandlung von Erhaltungsaufwand bei Baudenkmalen
+	7. Nicht abzugsfähige Ausgaben
+		§12:Nicht abzugsfähige Ausgaben
+	8. Die einzelnen Einkunftsarten
+		a) Land- und Forstwirtschaft (§2 Absatz 1 Satz 1 Nummer 1)
+			§13:Einkünfte aus Land- und Forstwirtschaft
+			§13a:Ermittlung des Gewinns aus Land- und Forstwirtschaft nach Durchschnittssätzen
+			§14:Veräußerung des Betriebs
+			§14a:Vergünstigungen bei der Veräußerung bestimmter land- und forstwirtschaftlicher Betriebe
+		b) Gewerbebetrieb (§2 Absatz 1 Satz 1 Nummer 2)
+			§15:Einkünfte aus Gewerbebetrieb
+			§15a:Verluste bei beschränkter Haftung
+			§15b:Verluste im Zusammenhang mit Steuerstundungsmodellen
+			§16:Veräußerung des Betriebs
+			§17:Veräußerung von Anteilen an Kapitalgesellschaften
+		c) Selbständige Arbeit (§2 Absatz 1 Satz 1 Nummer 3)
+			§18:Selbständige Arbeit
+		d) Nichtselbständige Arbeit (§2 Absatz 1 Satz 1 Nummer 4)
+			§19:Nichtselbständige Arbeit
+			§19a:Sondervorschrift für Einkünfte aus nichtselbständiger Arbeit bei Vermögensbeteiligungen
+		e) Kapitalvermögen (§2 Absatz 1 Satz 1 Nummer 5)
+			§20:Kapitalvermögen
+		f) Vermietung und Verpachtung (§2 Absatz 1 Satz 1 Nummer 6)
+			§21:Vermietung und Verpachtung
+		g) Sonstige Einkünfte (§2 Absatz 1 Satz 1 Nummer 7)
+			§22:Arten der sonstigen Einkünfte
+			§22a:Rentenbezugsmitteilungen an die zentrale Stelle
+			§23:Private Veräußerungsgeschäfte
+		h) Gemeinsame Vorschriften
+			§24:Gemeinsame Vorschriften
+			§24a:Altersentlastungsbetrag
+			§24b:Entlastungsbetrag für Alleinerziehende
+III. Veranlagung
+	§25:Veranlagungszeitraum, Steuererklärungspflicht
+	§26:Veranlagung von Ehegatten
+	§26a:Einzelveranlagung von Ehegatten
+	§26b:Zusammenveranlagung von Ehegatten
+	§27:(weggefallen)
+	§28:Besteuerung bei fortgesetzter Gütergemeinschaft
+	§29:(weggefallen)
+	§30:(weggefallen)
+IV. Tarif
+	§31:Familienleistungsausgleich
+	§32:Kinder, Freibeträge für Kinder
+	§32a:Einkommensteuertarif
+	§32b:Progressionsvorbehalt
+	§32c:Tarifermäßigung bei Einkünften aus Land- und Forstwirtschaft
+	§32d:Gesonderter Steuertarif für Einkünfte aus Kapitalvermögen
+	§33:Außergewöhnliche Belastungen
+	§33a:Außergewöhnliche Belastung in besonderen Fällen
+	§33b:Pauschbeträge für Menschen mit Behinderungen, Hinterbliebene und Pflegepersonen
+	§34:Außerordentliche Einkünfte
+	§34a:Begünstigung der nicht entnommenen Gewinne
+	§34b:Steuersätze bei Einkünften aus außerordentlichen Holznutzungen
+V. Steuerermäßigungen
+	1. Steuerermäßigung bei ausländischen Einkünften
+		§34c:Steuerermäßigung bei ausländischen Einkünften
+		§34d:Ausländische Einkünfte
+	2. Steuerermäßigung bei Einkünften aus Land- und Forstwirtschaft
+		§34e:(weggefallen)
+	2a. Steuerermäßigung für Steuerpflichtige mit Kindern bei Inanspruchnahme erhöhter Absetzungen für Wohngebäude oder der Steuerbegünstigungen für eigengenutztes Wohneigentum
+		§34f:Steuerermäßigung für Steuerpflichtige mit Kindern bei Inanspruchnahme erhöhter Absetzungen für Wohngebäude oder der Steuerbegünstigungen für eigengenutztes Wohneigentum
+	2b. Steuerermäßigung bei Zuwendungen an politische Parteien und an unabhängige Wählervereinigungen
+		§34g:Steuerermäßigung bei Zuwendungen an politische Parteien und an unabhängige Wählervereinigungen
+	3. Steuerermäßigung bei Einkünften aus Gewerbebetrieb
+		§35:Steuerermäßigung bei Einkünften aus Gewerbebetrieb
+	4. Steuerermäßigung bei Aufwendungen für haushaltsnahe Beschäftigungsverhältnisse und für die Inanspruchnahme haushaltsnaher Dienstleistungen
+		§35a:Steuerermäßigung bei Aufwendungen für haushaltsnahe Beschäftigungsverhältnisse, haushaltsnahe Dienstleistungen und Handwerkerleistungen
+	5. Steuerermäßigung bei Belastung mit Erbschaftsteuer
+		§35b:Steuerermäßigung bei Belastung mit Erbschaftsteuer
+	6. Steuerermäßigung für energetische Maßnahmen bei zu eigenen Wohnzwecken genutzten Gebäuden
+		§35c:Steuerermäßigung für energetische Maßnahmen bei zu eigenen Wohnzwecken genutzten Gebäuden
+VI. Steuererhebung
+	1. Erhebung der Einkommensteuer
+		§36:Entstehung und Tilgung der Einkommensteuer
+		§36a:Beschränkung der Anrechenbarkeit der Kapitalertragsteuer
+		§37:Einkommensteuer-Vorauszahlung
+		§37a:Pauschalierung der Einkommensteuer durch Dritte
+		§37b:Pauschalierung der Einkommensteuer bei Sachzuwendungen
+	2. Steuerabzug vom Arbeitslohn (Lohnsteuer)
+		§38:Erhebung der Lohnsteuer
+		§38a:Höhe der Lohnsteuer
+		§38b:Lohnsteuerklassen, Zahl der Kinderfreibeträge
+		§39:Lohnsteuerabzugsmerkmal
+		§39a:Freibetrag und Hinzurechnungsbetrag
+		§39b:Einbehaltung der Lohnsteuer
+		§39c:Einbehaltung der Lohnsteuer ohne Lohnsteuerabzugsmerkmale
+		§39d:(weggefallen)
+		§39e:Verfahren zur Bildung und Anwendung der elektronischen Lohnsteuerabzugsmerkmale
+		§39f:Faktorverfahren anstelle Steuerklassenkombination III/V
+		§40:Pauschalierung der Lohnsteuer in besonderen Fällen
+		§40a:Pauschalierung der Lohnsteuer für Teilzeitbeschäftigte und geringfügig Beschäftigte
+		§40b:Pauschalierung der Lohnsteuer bei bestimmten Zukunftssicherungsleistungen
+		§41:Aufzeichnungspflichten beim Lohnsteuerabzug
+		§41a:Anmeldung und Abführung der Lohnsteuer
+		§41b:Abschluss des Lohnsteuerabzugs
+		§41c:Änderung des Lohnsteuerabzugs
+		§42:(weggefallen)
+		§42a:(weggefallen)
+		§42b:Lohnsteuer-Jahresausgleich durch den Arbeitgeber
+		§42c:(weggefallen)
+		§42d:Haftung des Arbeitgebers und Haftung bei Arbeitnehmerüberlassung
+		§42e:Anrufungsauskunft
+		§42f:Lohnsteuer-Außenprüfung
+		§42g:Lohnsteuer-Nachschau
+	3. Steuerabzug vom Kapitalertrag (Kapitalertragsteuer)
+		§43:Kapitalerträge mit Steuerabzug
+		§43a:Bemessung der Kapitalertragsteuer
+		§43b:Bemessung der Kapitalertragsteuer bei bestimmten Gesellschaften
+		§44:Entrichtung der Kapitalertragsteuer
+		§44a:Abstandnahme vom Steuerabzug
+		§44b:Erstattung der Kapitalertragsteuer
+		§45:Ausschluss der Erstattung von Kapitalertragsteuer
+		§45a:Anmeldung und Bescheinigung der Kapitalertragsteuer
+		§45b:Angaben zur Bescheinigung und Abführung der Kapitalertragsteuer
+		§45c:Zusammengefasste Mitteilung zur Bescheinigung und Abführung der Kapitalertragsteuer
+		§45d:Mitteilungen an das Bundeszentralamt für Steuern
+		§45e:Ermächtigung für Zinsinformationsverordnung
+	4. Veranlagung von Steuerpflichtigen mit steuerabzugspflichtigen Einkünften
+		§46:Veranlagung bei Bezug von Einkünften aus nichtselbständiger Arbeit
+		§47:(weggefallen)
+VII. Steuerabzug bei Bauleistungen
+	§48:Steuerabzug
+	§48a:Verfahren
+	§48b:Freistellungsbescheinigung
+	§48c:Anrechnung
+	§48d:Besonderheiten im Fall von Doppelbesteuerungsabkommen
+VIII. Besteuerung beschränkt Steuerpflichtiger
+	§49:Beschränkt steuerpflichtige Einkünfte
+	§50:Sondervorschriften für beschränkt Steuerpflichtige
+	§50a:Steuerabzug bei beschränkt Steuerpflichtigen
+IX. Sonstige Vorschriften, Bußgeld-, Ermächtigungs- und Schlussvorschriften
+	§50b:Prüfungsrecht
+	§50c:Entlastung vom Steuerabzug in bestimmten Fällen
+	§50d:Anwendung von Abkommen zur Vermeidung der Doppelbesteuerung
+	§50e:Bußgeldvorschriften; Nichtverfolgung von Steuerstraftaten bei geringfügiger Beschäftigung in Privathaushalten
+	§50f:Bußgeldvorschriften
+	§50g:Entlastung vom Steuerabzug bei Zahlungen von Zinsen und Lizenzgebühren zwischen verbundenen Unternehmen verschiedener Mitgliedstaaten der Europäischen Union
+	§50h:Bestätigung für Zwecke der Entlastung von Quellensteuern in einem anderen Mitgliedstaat der Europäischen Union oder der Schweizerischen Eidgenossenschaft
+	§50i:Besteuerung bestimmter Einkünfte und Anwendung von Doppelbesteuerungsabkommen
+	§50j:Versagung der Entlastung von Kapitalertragsteuern in bestimmten Fällen
+	§51:Ermächtigungen
+	§51a:Festsetzung und Erhebung von Zuschlagsteuern
+	§52:Anwendungsvorschriften
+	§52a:(weggefallen)
+	§52b:(weggefallen)
+	§53:(weggefallen)
+	§54:(weggefallen)
+	§55:Schlussvorschriften (Sondervorschriften für die Gewinnermittlung nach §4 oder nach Durchschnittssätzen bei vor dem 1. Juli 1970 angeschafftem Grund und Boden)
+	§56:Sondervorschriften für Steuerpflichtige in dem in Artikel 3 des Einigungsvertrages genannten Gebiet
+	§57:Besondere Anwendungsregeln aus Anlass der Herstellung der Einheit Deutschlands
+	§58:Weitere Anwendung von Rechtsvorschriften, die vor Herstellung der Einheit Deutschlands in dem in Artikel 3 des Einigungsvertrages genannten Gebiet gegolten haben
+	§59:(weggefallen)
+	§60:(weggefallen)
+	§61:(weggefallen)
+X. Kindergeld
+	§62:Anspruchsberechtigte
+	§63:Kinder
+	§64:Zusammentreffen mehrerer Ansprüche
+	§65:Andere Leistungen für Kinder
+	§66:Höhe des Kindergeldes, Zahlungszeitraum
+	§67:Antrag
+	§68:Besondere Mitwirkungspflichten und Offenbarungsbefugnis
+	§69:Datenübermittlung an die Familienkassen
+	§70:Festsetzung und Zahlung des Kindergeldes
+	§71:Vorläufige Einstellung der Zahlung des Kindergeldes
+	§72:Festsetzung und Zahlung des Kindergeldes an Angehörige des öffentlichen Dienstes
+	§73:(weggefallen)
+	§74:Zahlung des Kindergeldes in Sonderfällen
+	§75:Aufrechnung
+	§76:Pfändung
+	§76a:(weggefallen)
+	§77:Erstattung von Kosten im Vorverfahren
+	§78:Übergangsregelungen
+XI. Altersvorsorgezulage
+	§79:Zulageberechtigte
+	§80:Anbieter
+	§81:Zentrale Stelle
+	§81a:Zuständige Stelle
+	§82:Altersvorsorgebeiträge
+	§83:Altersvorsorgezulage
+	§84:Grundzulage
+	§85:Kinderzulage
+	§86:Mindesteigenbeitrag
+	§87:Zusammentreffen mehrerer Verträge
+	§88:Entstehung des Anspruchs auf Zulage
+	§89:Antrag
+	§90:Verfahren
+	§91:Datenerhebung und Datenabgleich
+	§92:Bescheinigung
+	§92a:Verwendung für eine selbst genutzte Wohnung
+	§92b:Verfahren bei Verwendung für eine selbst genutzte Wohnung
+	§93:Schädliche Verwendung
+	§94:Verfahren bei schädlicher Verwendung
+	§95:Sonderfälle der Rückzahlung
+	§96:Anwendung der Abgabenordnung, allgemeine Vorschriften
+	§97:Übertragbarkeit
+	§98:Rechtsweg
+	§99:Ermächtigung
+XII. Förderbetrag zur betrieblichen Altersversorgung
+	§100:Förderbetrag zur betrieblichen Altersversorgung
+XIII. Mobilitätsprämie
+	§101:Bemessungsgrundlage und Höhe der Mobilitätsprämie
+	§102:Anspruchsberechtigung
+	§103:Entstehung der Mobilitätsprämie
+	§104:Antrag auf die Mobilitätsprämie
+	§105:Festsetzung und Auszahlung der Mobilitätsprämie
+	§106:Ertragsteuerliche Behandlung der Mobilitätsprämie
+	§107:Anwendung der Abgabenordnung
+	§108:Anwendung von Straf- und Bußgeldvorschriften der Abgabenordnung
+	§109:Verordnungsermächtigung
+XIV. Sondervorschriften zur Bewältigung der Corona-Pandemie
+	§110:Anpassung von Vorauszahlungen für den Veranlagungszeitraum 2019
+	§111:Vorläufiger Verlustrücktrag für 2020 und 2021
+XV. Energiepreispauschale
+	§112:Veranlagungszeitraum, Höhe
+	§113:Anspruchsberechtigung
+	§114:Entstehung des Anspruchs
+	§115:Festsetzung mit der Einkommensteuerveranlagung
+	§116:Anrechnung auf die Einkommensteuer
+	§117:Auszahlung an Arbeitnehmer
+	§118:Energiepreispauschale im Einkommensteuer-Vorauszahlungsverfahren
+	§119:Steuerpflicht
+	§120:Anwendung der Abgabenordnung
+	§121:Anwendung von Straf- und Bußgeldvorschriften der Abgabenordnung
+	§122:Nichtberücksichtigung als Einkommen bei Sozialleistungen
+Anlage 1:(zu §4d Absatz 1) Tabelle für die Errechnung des Deckungskapitals für lebenslänglich laufende Leistungen von Unterstützungskassen
+Anlage 1a:(zu §13a) Ermittlung des Gewinns aus Land- und Forstwirtschaft nach Durchschnittssätzen
+Anlage 2:(zu §43b) Gesellschaften im Sinne der Richtlinie 90/435/EWG
+Anlage 3:(zu §50g)
