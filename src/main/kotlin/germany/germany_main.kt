@@ -2,6 +2,7 @@ package tax.germany
 
 import tax.*
 import tax.germany.access.*
+import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
 
@@ -105,15 +106,70 @@ object GermanTax: TaxChain {
 
         //TODO1: loss compensation (Verlustabzug) here. no idea how to implement yet. can move losses in one type of income to other types of income, or even to +- 1 year to soften taxation.
 
-        val lvl3 = if (dontSendTax) Budget(lvl2.sum - 36.0) else {
-            changes.filter {it is Sonderausgaben && it.red_amount != null}
-                .fold(lvl2) { acc, change ->
-                    Budget(acc.sum - (let { (change as Reduction).red_amount } ?: 0.0))//TODO: complex red_amount return (like 2/3 for schools etc)
+        //TODO2: looks like this applies only for first training (first job), so should check previous years for earlier trainings
+        //TODO2: invent some clever way to distribute study expenses between werbungskosten and sonderausgaben
+        val totalSelfStudyExpenses = changes.filter {it is SelfStudyExpenses && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        val totalChildSchoolPayment = changes.filter {it is ChildSchoolPayment && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        //TODO1: one child for now, but actually should count 4000 for each
+        val totalChildcareExpense = changes.filter {it is ChildcareExpense && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        val totalBasicInsuranceExpenses = changes.filter {it is OldAgePensionContribution && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        val totalEmployerPensionContributions = changes.filter {it is OldAgePensionEmployerShare && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        val pensionDeductibleShareCoef = 0.94//TODO1: depends on year
+        val pensionDeductibleBruttoMax = 25639.0//TODO1: depends on year
+        val totalBasicInsuranceDeductible =
+            max(totalBasicInsuranceExpenses.sum + totalEmployerPensionContributions.sum, pensionDeductibleBruttoMax) * pensionDeductibleShareCoef - totalEmployerPensionContributions.sum
+
+        val totalOtherInsuranceExpenses = changes.filter {it is InsuranceContribution && it !is OldAgePensionContribution && it.red_amount != null}
+            .fold(Budget(0.0)) { acc, change ->
+                Budget(acc.sum + (let { (change as Reduction).red_amount } ?: 0.0))
+            }
+
+        var lvl3 = if (dontSendTax) Budget(lvl2.sum - 36.0) else {
+            changes.filter {it is Sonderausgaben && it.red_amount != null
+                    && it !is SelfStudyExpenses
+                    && it !is ChildSchoolPayment
+                    && it !is InsuranceContribution
+                }.fold(lvl2) { acc, change ->
+                    Budget(acc.sum - (let { (change as Reduction).red_amount } ?: 0.0))
                 }
-        }
-
-
-        return Pair(lvl1, Budget(0.0))
+            }
+        lvl3.sum = lvl3.sum - min(totalSelfStudyExpenses.sum, 6000.0)
+                            - min(totalChildSchoolPayment.sum / 3.0, 5000.0)
+                            - min(totalChildcareExpense.sum / 3.0 * 2.0, 4000.0)
+                            - min(totalBasicInsuranceExpenses.sum * 2.0, 4000.0)
+                            - totalBasicInsuranceDeductible
+                            - min(totalOtherInsuranceExpenses.sum, 1900.0)/*TODO1: actually can be 2800
+                            if the contributions to Sick and Long-term care insurance were borne entirely
+                            without tax-free grants throughout the calendar year, also something very complex here*/
+        //TODO: extraodinary burden, smth about home ownership
+        // + foreign income
+        // = einkommen
+        // children reduction
+        // hardness compensation
+        // = taxable income: zu versteundes einkommen
+        // ...
+        //
+        return Pair(lvl3, Budget(0.0))
     }
 
     private fun agriForestAllowance(base: Double, agri: Double): Double { // Einkünfte_aus_Land-_und_Forstwirtschaft_(Deutschland) freibeitrag

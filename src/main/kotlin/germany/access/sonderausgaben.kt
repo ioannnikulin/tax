@@ -8,10 +8,7 @@ import java.lang.Double.max
 interface Sonderausgaben: LegalReduction {
 }
 
-class StudyExpenses(amount:Double, proof: File? = null): Reduction(amount, proof), Sonderausgaben {
-    var amount = amount
-        get() = //TODO: one thing is a sum that the subject wants to deduct, and the other thing is the sum that will actually be deducted,
-// and the latter can be combined from multiple priors
+class SelfStudyExpenses(amount:Double, proof: File? = null): Reduction(amount, proof), Sonderausgaben {
 }
 
 class PostMaritalMaintenance(amount:Double, proof: File? = null)://Unterhalt
@@ -27,13 +24,16 @@ class PostMaritalMaintenance(amount:Double, proof: File? = null)://Unterhalt
 
 open class InsuranceContribution(amount: Double, proof: File? = null):
     Reduction(amount, proof), Sonderausgaben {
-        //TODO1: actually all insurance contributions in sum shouldn't be over 2800 or 1900, didn't understand
-        //so children should call insurancecontribution standalone (one per person) and change his amount
+        //TODO1: more options for old age pensions actually
         //also some even more complex prerequisites under (2) in estg 10, jesus christ
         //also some fuckery in 10a
     }
 
 class OldAgePensionContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {
+}
+
+class OldAgePensionEmployerShare(amount:Double, proof: File? = null):
     InsuranceContribution(amount, proof) {
 }
 
@@ -49,20 +49,36 @@ class HealthInsuranceContribution(amount:Double, proof: File? = null):
     InsuranceContribution(amount, proof) {
 }
 
+class LongTermCareInsuranceContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {
+}
+
+class AccidentInsuranceContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {
+}
+
+class PrivateLiabilityInsuranceContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {
+}
+
+class RiskInsuranceContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {
+}
+
+class LifeInsuranceContribution(amount:Double, proof: File? = null):
+    InsuranceContribution(amount, proof) {//TODO1: complex terms
+}
+
 class ChurchTaxContribution(amount:Double, proof: File? = null):
     Reduction(amount, proof), Sonderausgaben {//TODO1: some exception i didnt understand
 }
 
-class ProfessionalTraining(amount:Double, proof: File? = null):
-    Reduction(amount, proof), Sonderausgaben {//TODO1: also something about spouses
-        var amount = amount
-            get() = max(field, 6000.0)//TODO1: also possibly it applies differently to first job training and others...
+class ChildcareExpense(amount:Double, proof: File? = null):
+    Reduction(amount, proof), Sonderausgaben {
 }
 
 class ChildSchoolPayment(amount:Double, proof: File? = null):
     Reduction(amount, proof), Sonderausgaben {
-    var amount = amount
-        get() = max(field/3, 5000.0)
     override val desc = "Payment for school for each of your children. " +
             "Only attending lessons - not accommodation, not food, not care, just lessons price. " +
             "The school mut be within EU or be legally German - anywhere."

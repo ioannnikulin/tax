@@ -59,7 +59,8 @@ fun main(args: Array<String>) {
     val changes = listOf(
         tax.germany.access.FoodInBusinessTrip(1000.0)
         , tax.germany.access.FoodInBusinessTrip(2000.0)
-        , tax.germany.access.StudyExpenses(5000.0)
+        , tax.germany.access.SelfStudyExpenses(5000.0)
+        , tax.germany.access.SelfStudyExpenses(5000.0)
         , tax.germany.access.PostMaritalMaintenance(15000.0)
     )
     val factors:MutableList<Factor> = mutableListOf(
